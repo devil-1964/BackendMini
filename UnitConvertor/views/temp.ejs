@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <style>
+        body {
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-align: left;
+            padding: 20px;
+        }
+        h1{
+            text-align: center;
+        }
+        form {
+            margin: 20px auto;
+            max-width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+         
+        select, button {
+            margin: 8px 0 ;
+            padding: 8px;
+            width: 100%;
+        }
+
+        input{
+            margin:8px 0;
+            padding:8px;
+            width: 95%;
+        }
+        a:focus, a:visited{
+            color: black;
+        }
+        .result {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .dimensions{
+            font-size: large;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-weight: 600;
+            text-decoration: underline;
+            margin:20px 0 ;
+        }
+        .hidden
+        {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Unit Converter</h1>
+    <div class="dimensions">
+        <div ><a href="/length">Length</a></div>
+        <div ><a href="/weight">Weight</a></div>
+        <div ><a href="/temp">Temperature</a></div>
+
+    </div>
+    <form action="/convert" method="POST">
+
+        <select id="type" class="hidden" name="type">
+            <option value="temp"></option>
+        </select>
+        
+        <label for="data">Enter the Temperature to convert:</label>
+        <input type="number" name="data" required>
+        
+        <label for="from">Unit to Convert from:</label>
+        <select name="from" required>
+            <option value="1">celsius</option>
+            <option value="2">fahrenheit</option>
+            <option value="3">kelvin</option>
+        </select>
+        
+        <label for="to">Unit to Convert to:</label>
+        <select name="to" required>
+            <option value="1">celsius</option>
+            <option value="2">fahrenheit</option>
+            <option value="3">kelvin</option>
+        </select>
+        
+        <button type="submit">Convert</button>
+    </form>
+
+    <% if (result !== null) { %>
+        <div class="result">Result: <%= result %></div>
+    <% } %>
+</body>
+</html>
